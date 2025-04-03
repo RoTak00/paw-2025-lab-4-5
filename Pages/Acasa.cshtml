@@ -1,0 +1,26 @@
+@page
+@model Lab3.Pages.Acasa
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Acasa";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Acasa</h1>
+    
+    @foreach (var stire in Model.Stiri)
+    {
+        <div class="card mb-3">
+            <div class="card-body">
+                <h4><a asp-page="/Stire" asp-route-stireId="@stire.Id">@stire.Titlu</a></h4>
+                <p class="card-text">@stire.Lead</p>
+                <p class="text-muted">
+                    Adaugat de <strong>@stire.Autor</strong>
+                    la data de <strong>@stire.Data.ToString("dd.MM.yyyy")</strong>
+                    în categoria <strong>@stire.Categorie?.Nume</strong>.
+                </p>
+            </div>
+        </div>
+    }
+</div>

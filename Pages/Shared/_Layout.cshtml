@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - Portal Știri</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+<!-- TOP NAVBAR: menu + search -->
+<header class="bg-light border-bottom mb-3">
+    <div class="container-fluid d-flex justify-content-between align-items-center py-2">
+        <nav class="navbar navbar-expand-md navbar-light">
+            <a class="navbar-brand" asp-page="/Acasa">Portal Știri</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" asp-page="/Acasa">Acasă</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-page="/Politic">Politic</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-page="/Sport">Sport</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-page="/Despre">Despre</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-page="/Contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Caută..." aria-label="Search" />
+            <button class="btn btn-outline-primary" type="submit">Caută</button>
+        </form>
+    </div>
+</header>
+
+<!-- BANNER -->
+<div class="container mb-3">
+    <div class="p-4 text-white bg-primary rounded text-center">
+        <h1>Portal de Știri</h1>
+        <p>Rămâi informat cu cele mai noi știri din România</p>
+    </div>
+</div>
+
+<!-- CONTENT + SIDEBAR -->
+<main class="container">
+    <div class="row">
+        <!-- Main content -->
+        <div class="col-md-8">
+            @RenderBody()
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-md-4">
+            <h4>Categorii</h4>
+            <ul class="list-group">
+                <li class="list-group-item"><a asp-page="/Politic">Politic</a></li>
+                <li class="list-group-item"><a asp-page="/Sport">Sport</a></li>
+                <li class="list-group-item"><a asp-page="/Contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</main>
+
+<footer class="text-center mt-5 py-3 border-top">
+    <p>&copy; 2024 - Portal Știri</p>
+</footer>
+
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
